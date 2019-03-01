@@ -50,7 +50,10 @@ public class CarModel extends Observable {
     }
 
     private CarMessage createCarMessage(Vehicle vehicle){
-        return new CarMessage(vehicle.getModelName(), (int) vehicle.getX(), (int) vehicle.getY());
+        return new CarMessage(vehicle.getModelName(),
+                              (int) vehicle.getX(),
+                              (int) vehicle.getY(),
+                               vehicle.getCurrentSpeed());
     }
 
     public void gas(int amount){

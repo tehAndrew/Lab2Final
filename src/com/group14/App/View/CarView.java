@@ -110,5 +110,4 @@ public class CarView implements IObserver {
         }
         drawPanel.repaint();
     }
-
 }
