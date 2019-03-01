@@ -23,6 +23,7 @@ public class SpeedView implements IObserver {
         for (CarMessage msg : carMessages) {
 
         }
+    }
 
 
 }
