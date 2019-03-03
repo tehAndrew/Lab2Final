@@ -7,9 +7,9 @@ import java.util.ArrayDeque;
 
 public class DrawPanel extends JPanel {
     private class DrawCall {
-        private BufferedImage image;
-        private int x;
-        private int y;
+        private final BufferedImage image;
+        private final int x;
+        private final int y;
 
         DrawCall (BufferedImage image, int x, int y) {
             this.image = image;
@@ -22,7 +22,7 @@ public class DrawPanel extends JPanel {
         public int getY() { return y; }
     }
 
-    private ArrayDeque<DrawCall> drawCalls;
+    private final ArrayDeque<DrawCall> drawCalls;
 
     public DrawPanel(int width, int height) {
         drawCalls = new ArrayDeque<>();
@@ -45,6 +45,5 @@ public class DrawPanel extends JPanel {
                 g.drawImage(dc.getImage(), dc.getX(), dc.getY(), null);
             }
         }
-
     }
 }

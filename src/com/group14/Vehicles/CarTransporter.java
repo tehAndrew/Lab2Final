@@ -40,12 +40,12 @@ public class CarTransporter extends Vehicle implements IStorage<Vehicle> {
     /**
      * The ramp of the car transporter. Vehicles can not be loaded unless this ramp is lowered.
      */
-    private Ramp ramp;
+    private final Ramp ramp;
 
     /**
      * The stack in which all vehicles is stored.
      */
-    private Stack<Vehicle> storedCars;
+    private final Stack<Vehicle> storedCars;
 
     /**
      * The length of the storage space that can be used.
@@ -61,7 +61,7 @@ public class CarTransporter extends Vehicle implements IStorage<Vehicle> {
      * @see Vehicle
      */
     public CarTransporter(double x, double y) {
-        super(2, 730, Color.pink, "Car Transporter", STORAGE_LENGTH + 2, STORAGE_WIDTH + 0.44, x, y);
+        super(2, 170, Color.pink, "Car Transporter", STORAGE_LENGTH + 2, STORAGE_WIDTH + 0.44, x, y);
         ramp = new Ramp(-30, 90,90);
         storedCars = new Stack<>();
         storageLeft = STORAGE_LENGTH;
@@ -158,7 +158,7 @@ public class CarTransporter extends Vehicle implements IStorage<Vehicle> {
      * @see #speedFactor()
      * @see Vehicle#gas(double)
      */
-    public void incrementSpeed(double amount){
+    protected void incrementSpeed(double amount){
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
     }
 
@@ -175,7 +175,7 @@ public class CarTransporter extends Vehicle implements IStorage<Vehicle> {
      * @see #speedFactor()
      * @see Vehicle#brake(double)
      */
-    public void decrementSpeed(double amount) {
+    protected void decrementSpeed(double amount) {
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 

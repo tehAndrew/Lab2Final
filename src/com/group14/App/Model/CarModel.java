@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarModel extends Observable {
-    private final int DELAY = 50;
+    private static final int DELAY = 50;
 
-    private Timer timer;
-    private List<Vehicle> cars;
+    private final Timer timer;
+    private final List<Vehicle> cars;
     private int screenWidth;
     private int imageWidth;
 
@@ -29,6 +29,7 @@ public class CarModel extends Observable {
         cars.add(new Volvo240(0,0));
         cars.add(new Saab95(0,100));
         cars.add(new Scania(0,200));
+        cars.add(new Scania(0,300));
 
         timer = new Timer(DELAY, new TimerListener());
         timer.start();
@@ -50,7 +51,10 @@ public class CarModel extends Observable {
     }
 
     private CarMessage createCarMessage(Vehicle vehicle){
-        return new CarMessage(vehicle.getModelName(), (int) vehicle.getX(), (int) vehicle.getY());
+        return new CarMessage(vehicle.getModelName(),
+                              (int) vehicle.getX(),
+                              (int) vehicle.getY(),
+                               vehicle.getCurrentSpeed());
     }
 
     public void gas(int amount){

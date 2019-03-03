@@ -12,9 +12,9 @@ package com.group14.Vehicles.Parts;
  * @author Simon Lindeberg Skoglund
  */
 public class Ramp {
-    private double minAngle;
-    private double maxAngle;
-    private double neutralAngle;
+    private final double minAngle;
+    private final double maxAngle;
+    private final double neutralAngle;
     private double angle;
 
     /**

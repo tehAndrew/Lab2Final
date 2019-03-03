@@ -70,7 +70,7 @@ public class Saab95 extends Vehicle {
      * @see Vehicle
      * @see #speedFactor()
      */
-    public void incrementSpeed(double amount){
+    protected void incrementSpeed(double amount){
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
     }
 
@@ -83,7 +83,7 @@ public class Saab95 extends Vehicle {
      * @see Vehicle
      * @see #speedFactor()
      */
-    public void decrementSpeed(double amount){
+    protected void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 }

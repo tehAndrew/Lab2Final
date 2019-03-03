@@ -47,27 +47,27 @@ public abstract class Vehicle implements IMovable, IStorable {
     /**
      *  The number of doors on the vehicle.
      */
-    private int nrDoors;
+    private final int nrDoors;
     /**
      *  The engine power of the vehicle.
      */
-    private double enginePower;
+    private final double enginePower;
     /**
      *  The color of the vehicle.
      */
-    private Color color;
+    private final Color color;
     /**
      *  The model name of the vehicle.
      */
-    private String modelName;
+    private final String modelName;
     /**
      *  The length of the vehicle.
      */
-    private double length;
+    private final double length;
     /**
      *  The width of the vehicle.
      */
-    private double width;
+    private final double width;
 
     /**
      *  Constructs a car with a number of doors, engine power, color,
@@ -137,15 +137,6 @@ public abstract class Vehicle implements IMovable, IStorable {
     }
 
     /**
-     *  Return  the number of doors on the vehicle.
-     *
-     * @return number of doors on the vehicle
-     */
-    public int getNrDoors(){
-        return nrDoors;
-    }
-
-    /**
      * Returns the engine power of the vehicle.
      *
      * @return engine power of the vehicle
@@ -203,15 +194,6 @@ public abstract class Vehicle implements IMovable, IStorable {
     }
 
     /**
-     * Set the vehicle to a specified color.
-     *
-     * @param color the new vehicle color
-     */
-    public void setColor(Color color){
-        this.color = color;
-    }
-
-    /**
      * Starts the engine by setting the current vehicle speed to 0.1.
      */
     public void startEngine(){
@@ -235,7 +217,7 @@ public abstract class Vehicle implements IMovable, IStorable {
      * @see Scania
      * @see CarTransporter
      */
-    public abstract void incrementSpeed(double amount);
+    protected abstract void incrementSpeed(double amount);
 
     /**
      * Decrease the current speed with a specified amount. This method
@@ -247,7 +229,7 @@ public abstract class Vehicle implements IMovable, IStorable {
      * @see Scania
      * @see CarTransporter
      */
-    public abstract void decrementSpeed(double amount);
+    protected abstract void decrementSpeed(double amount);
 
     /**
      * Use <tt>incrementSpeed</tt> to increase the current speed by a specified amount, as long

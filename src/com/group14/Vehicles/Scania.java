@@ -25,7 +25,7 @@ public class Scania extends Vehicle {
     /**
     * Is the variable for the flatbed of the truck.
     * */
-    private Ramp flatBed;
+    private final Ramp flatBed;
 
     /**
      * Constructs a com.group14.Vehicles.Scania truck which has 2 doors, an engine power of 730, a black chassis,
@@ -35,7 +35,7 @@ public class Scania extends Vehicle {
      * @see Vehicle
      */
     public Scania(double x, double y){
-        super(2, 730, Color.yellow, "Scania", 8.53, 2.44, x, y);
+        super(2, 180, Color.yellow, "Scania", 8.53, 2.44, x, y);
         flatBed = new Ramp(0, 70, 0);
     }
 
@@ -81,7 +81,7 @@ public class Scania extends Vehicle {
      * @see Vehicle
      * @see #speedFactor()
      */
-    public void incrementSpeed(double amount){
+    protected void incrementSpeed(double amount){
         currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
     }
 
@@ -94,7 +94,7 @@ public class Scania extends Vehicle {
      * @see Vehicle
      * @see #speedFactor()
      */
-    public void decrementSpeed(double amount) {
+    protected void decrementSpeed(double amount) {
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 

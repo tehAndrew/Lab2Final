@@ -22,13 +22,13 @@ public class CarView implements IObserver {
         STOP
     }
 
+    private final JFrame frame;
+    private final DrawPanel drawPanel;
+    private final JPanel controlPanel;
+    private final JPanel gasPanel;
+    private final JSpinner gasSpinner;
+    private final JButton[] buttons;
     private ImageLoader imageLoader;
-    private JFrame frame;
-    private DrawPanel drawPanel;
-    private JPanel controlPanel;
-    private JPanel gasPanel;
-    private JSpinner gasSpinner;
-    private JButton[] buttons;
 
     public CarView(String title, int screenWidth, int screenHeight) {
         frame = new JFrame();
@@ -110,5 +110,4 @@ public class CarView implements IObserver {
         }
         drawPanel.repaint();
     }
-
 }
