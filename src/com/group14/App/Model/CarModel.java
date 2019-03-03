@@ -18,8 +18,8 @@ public class CarModel extends Observable {
 
     private final Timer timer;
     private final List<Vehicle> cars;
-    private int screenWidth;
-    private int imageWidth;
+    private final int screenWidth;
+    private final int imageWidth;
 
     public CarModel(int screenWidth, int imageWidth){
         this.screenWidth = screenWidth;
@@ -38,6 +38,7 @@ public class CarModel extends Observable {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             ArrayList<CarMessage> cMessages = new ArrayList<>();
+
             for (Vehicle car : cars) {
                 car.move();
                 cMessages.add(createCarMessage(car));
@@ -46,6 +47,7 @@ public class CarModel extends Observable {
                     car.turnLeft(Math.PI);
                 }
             }
+
             notifyObservers(cMessages);
         }
     }
@@ -54,7 +56,7 @@ public class CarModel extends Observable {
         return new CarMessage(vehicle.getModelName(),
                               (int) vehicle.getX(),
                               (int) vehicle.getY(),
-                               vehicle.getCurrentSpeed());
+                              vehicle.getCurrentSpeed());
     }
 
     public void gas(int amount){
