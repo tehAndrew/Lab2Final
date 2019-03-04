@@ -28,6 +28,8 @@ public class CarController {
         carView.mapBehaviorToButton(CarView.Button.LOWER_BED.ordinal(), e -> carModel.lowerRamp());
         carView.mapBehaviorToButton(CarView.Button.START.ordinal(), e -> carModel.start());
         carView.mapBehaviorToButton(CarView.Button.STOP.ordinal(), e -> carModel.stop());
+        carView.mapBehaviorToButton(CarView.Button.ADD.ordinal(), e -> carModel.addCar());
+        carView.mapBehaviorToButton(CarView.Button.REMOVE.ordinal(), e -> carModel.removeCar());
         carView.mapBehaviorToSpinner(e -> this.spinnerValue = (int) ((JSpinner)e.getSource()).getValue());
     }
 }

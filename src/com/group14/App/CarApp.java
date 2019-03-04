@@ -8,8 +8,9 @@ import com.group14.ResourceLoader.ImageLoader;
 
 public class CarApp {
     private final int CAR_VIEW_WIDTH = 800;
-    private final int CAR_VIEW_HEIGHT = 800;
+    private final int CAR_VIEW_HEIGHT = 850;
     private final int SPEED_VIEW_WIDTH = 280;
+    private final int SPEED_VIEW_HEIGHT = 205;
 
     private CarModel model;
     private CarView mainView;
@@ -25,7 +26,7 @@ public class CarApp {
 
         model = new CarModel(CAR_VIEW_WIDTH, imageLoader.getImage("Saab95").getWidth());
         mainView = new CarView("Car Sim", CAR_VIEW_WIDTH, CAR_VIEW_HEIGHT);
-        speedView = new SpeedView("Speed", SPEED_VIEW_WIDTH, 0);
+        speedView = new SpeedView("Speed", SPEED_VIEW_WIDTH, SPEED_VIEW_HEIGHT);
         controller = new CarController(model, mainView);
 
         model.addObserver(mainView);

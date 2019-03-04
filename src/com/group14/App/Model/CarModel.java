@@ -6,6 +6,7 @@ import com.group14.Vehicles.Saab95;
 import com.group14.Vehicles.Scania;
 import com.group14.Vehicles.Vehicle;
 import com.group14.Vehicles.Volvo240;
+import com.group14.Vehicles.VehicleFactory;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,6 +16,8 @@ import java.util.List;
 
 public class CarModel extends Observable {
     private static final int DELAY = 50;
+    private static final int MAX_CAR_AMOUNT = 10;
+    private static final int CAR_OFFSET = 60;
 
     private final Timer timer;
     private final List<Vehicle> cars;
@@ -27,9 +30,8 @@ public class CarModel extends Observable {
 
         cars = new ArrayList<>();
         cars.add(new Volvo240(0,0));
-        cars.add(new Saab95(0,100));
-        cars.add(new Scania(0,200));
-        cars.add(new Scania(0,300));
+        cars.add(new Saab95(0,CAR_OFFSET));
+        cars.add(new Scania(0,CAR_OFFSET * 2));
 
         timer = new Timer(DELAY, new TimerListener());
         timer.start();
@@ -118,6 +120,18 @@ public class CarModel extends Observable {
     public void stop() {
         for (Vehicle car : cars) {
             car.stopEngine();
+        }
+    }
+
+    public void addCar() {
+        if (cars.size() < MAX_CAR_AMOUNT) {
+            cars.add(VehicleFactory.createVehicle("random", 0, CAR_OFFSET * cars.size()));
+        }
+    }
+
+    public void removeCar() {
+        if (cars.size() > 0) {
+            cars.remove(cars.size() - 1);
         }
     }
 }

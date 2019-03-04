@@ -8,8 +8,6 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class SpeedView implements IObserver {
-    private static final int ROW_HEIGHT = 27;
-
     private JFrame frame;
     private JLabel label;
     private String text;
@@ -33,7 +31,5 @@ public class SpeedView implements IObserver {
         }
         text += "</html>";
         label.setText(text);
-
-        frame.setSize(new Dimension(frame.getWidth(), ROW_HEIGHT * carMessages.size()));
     }
 }

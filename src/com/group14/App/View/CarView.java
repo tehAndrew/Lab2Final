@@ -19,8 +19,12 @@ public class CarView implements IObserver {
         TURBO_OFF,
         LOWER_BED,
         START,
-        STOP
+        STOP,
+        ADD,
+        REMOVE
     }
+
+    private final static int BUTTON_AMOUNT = 10;
 
     private final JFrame frame;
     private final DrawPanel drawPanel;
@@ -46,7 +50,7 @@ public class CarView implements IObserver {
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
         frame.add(gasPanel);
 
-        buttons = new JButton[8];
+        buttons = new JButton[BUTTON_AMOUNT];
         buttons[Button.GAS.ordinal()] = new JButton("Gas");
         buttons[Button.BRAKE.ordinal()] = new JButton("Brake");
         buttons[Button.TURBO_OFF.ordinal()] = new JButton("Saab Turbo off");
@@ -55,15 +59,19 @@ public class CarView implements IObserver {
         buttons[Button.LOWER_BED.ordinal()] = new JButton("Lower Lift Bed");
         buttons[Button.START.ordinal()] = new JButton("Start all cars");
         buttons[Button.STOP.ordinal()] = new JButton("Stop all cars");
+        buttons[Button.ADD.ordinal()] = new JButton("Add random");
+        buttons[Button.REMOVE.ordinal()] = new JButton("Remove last");
 
         controlPanel = new JPanel();
         controlPanel.setLayout(new GridLayout(2,4));
         controlPanel.add(buttons[Button.GAS.ordinal()], 0);
         controlPanel.add(buttons[Button.TURBO_ON.ordinal()], 1);
         controlPanel.add(buttons[Button.LIFT_BED.ordinal()], 2);
-        controlPanel.add(buttons[Button.BRAKE.ordinal()], 3);
-        controlPanel.add(buttons[Button.TURBO_OFF.ordinal()], 4);
-        controlPanel.add(buttons[Button.LOWER_BED.ordinal()], 5);
+        controlPanel.add(buttons[Button.ADD.ordinal()], 3);
+        controlPanel.add(buttons[Button.BRAKE.ordinal()], 4);
+        controlPanel.add(buttons[Button.TURBO_OFF.ordinal()], 5);
+        controlPanel.add(buttons[Button.LOWER_BED.ordinal()], 6);
+        controlPanel.add(buttons[Button.REMOVE.ordinal()], 7);
         controlPanel.setPreferredSize(
                 new Dimension((screenWidth / 2) + 4, 200));
         frame.add(controlPanel);
